@@ -4,9 +4,13 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
-
+from collections import Counter
+x=list(z.strip().split('\t') for z in open("files/input/data.csv", "r").readlines())
 def pregunta_04():
+    y=[z[2].split('-')[1] for z in x]
+    return list(sorted(Counter(y).items()))
+if __name__ == "__main__":
+    print(pregunta_04()) 
     """
     La columna 3 contiene una fecha en formato `YYYY-MM-DD`. Retorne la
     cantidad de registros por cada mes, tal como se muestra a continuación.

@@ -5,8 +5,17 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
+x=list(z.strip().split('\t') for z in open("files/input/data.csv", "r").readlines())
 def pregunta_06():
+    y=','.join([','.join(z[4].split(",")) for z in x]).split(',')
+    p=[k.split(':') for k in y]
+    q=list(set(z[0] for z in p))
+    w=sorted([(z,min([int(t[1]) for t in p  if t[0] == z]),max([int(t[1]) for t in p  if t[0] == z])) for z in q])
+
+    return w
+
+if __name__ == "__main__":
+    print(pregunta_06()) 
     """
     La columna 5 codifica un diccionario donde cada cadena de tres letras
     corresponde a una clave y el valor despues del caracter `:` corresponde al

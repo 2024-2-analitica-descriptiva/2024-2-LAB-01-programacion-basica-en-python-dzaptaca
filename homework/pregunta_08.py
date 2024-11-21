@@ -5,8 +5,14 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
+x=list(z.strip().split('\t') for z in open("files/input/data.csv", "r").readlines())
 def pregunta_08():
+    y=list(set(z[1] for z in x))
+    q=sorted(list( (int(z) ,list(sorted(set(t[0] for t in x if t[1]==z)))) for z in y))
+    return q
+
+if __name__ == "__main__":
+    print(pregunta_08()) 
     """
     Genere una lista de tuplas, donde el primer elemento de cada tupla
     contiene  el valor de la segunda columna; la segunda parte de la tupla
